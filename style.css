@@ -1,0 +1,156 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #AF677F;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: block;
+}
+
+nav ul li a:hover {
+    filter: drop-shadow(0 15px 7px white);
+}
+
+.submenu ul.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #333;
+    padding: 0;
+    z-index: 1;
+    display: none;
+    overflow: hidden; /* Asegura que el contenido desbordado se oculte */
+    transition: height 0.3s ease; /* Suaviza la transición del despliegue */
+}
+
+.submenu:hover ul.dropdown {
+    display: block;
+}
+
+.submenu ul.dropdown li {
+    width: 200px;
+}
+
+.submenu ul.dropdown li a {
+    padding: 10px;
+    background-color: #AF677F;
+}
+
+.submenu ul.dropdown li a:hover {
+    background-color: #F2ACBB;
+}
+
+/* Footer styles */
+footer {
+    background-color: #AF677F;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+.logo img {
+    width: 100px;
+    height: 100px;
+}
+
+/* Para ajustar el margen superior del contenido cuando se despliega el menú */
+.submenu:hover ~ .container {
+    margin-top: 200px; /* Ajusta este valor según sea necesario */
+}
+
+/* Estilos para el menú de hamburguesa */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+/* Ocultar el menú en pantallas pequeñas */
+nav ul {
+    display: none;
+}
+
+/* Mostrar el menú al hacer clic en la hamburguesa */
+nav ul.show {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+}
+
+nav ul li {
+    margin: 10px 0;
+    text-align: center;
+}
+
+/* Media queries para pantallas más grandes */
+@media(min-width: 768px) {
+    .hamburger {
+        display: none;
+    }
+
+    nav ul {
+        display: flex;
+    }
+
+    nav ul.show {
+        display: flex;
+        flex-direction: row;
+        position: static;
+        background-color: transparent;
+    }
+
+    nav ul li {
+        margin: 0 10px;
+    }
+}
+
+/* Mostrar hamburguesa en pantallas pequeñas */
+@media(max-width: 767px) {
+    .hamburger {
+        display: flex;
+    }
+}
